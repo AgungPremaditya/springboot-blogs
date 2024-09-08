@@ -76,4 +76,15 @@ public class BlogController {
         }
     }
 
+    /**
+     * Delete a blog
+     * 
+     * @param id id of the blog to be deleted
+     * @return ResponseEntity<Void> 204 No Content
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBlog(@PathVariable UUID id) {
+        blogService.deleteBlog(id);
+        return ResponseEntity.noContent().build();
+    }
 }

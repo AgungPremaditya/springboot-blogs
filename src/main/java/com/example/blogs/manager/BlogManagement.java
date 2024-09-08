@@ -8,6 +8,7 @@ import com.example.blogs.service.BlogService;
 import com.example.blogs.service.CategoryService;
 
 import java.util.UUID;
+import java.util.List;
 
 @Component
 public class BlogManagement {
@@ -17,6 +18,10 @@ public class BlogManagement {
 
     @Autowired
     private CategoryService categoryService;
+
+    public List<Blog> getAllBlogs() {
+        return blogService.getAllBlogs();
+    }
 
     public Blog getBlogDetail(UUID blogId) {
         return blogService.findBlogById(blogId);
@@ -45,5 +50,9 @@ public class BlogManagement {
         }
 
         return null;
+    }
+
+    public void deleteBlog(UUID blogId) {
+        blogService.deleteBlog(blogId);
     }
 }
