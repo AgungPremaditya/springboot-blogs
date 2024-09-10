@@ -68,7 +68,7 @@ public class BlogController {
      */
     @PutMapping("/{id}")
     public ResponseEntity<Blog> updateBlog(@PathVariable UUID id, @RequestBody Blog updatedBlog) {
-        Blog updated = blogService.updateBlog(id, updatedBlog);
+        Blog updated = blogManagement.updateBlog(updatedBlog, id);
         if (updated != null) {
             return ResponseEntity.ok(updated);
         } else {

@@ -25,16 +25,6 @@ public class BlogService {
         return blogRepository.save(blog);
     }
 
-    public Blog updateBlog(UUID id, Blog updatedBlog) {
-        Blog existingBlog = blogRepository.findById(id).orElse(null);
-        if (existingBlog != null) {
-            existingBlog.setTitle(updatedBlog.getTitle());
-            existingBlog.setContent(updatedBlog.getContent());
-            return blogRepository.save(existingBlog);
-        }
-        return null;
-    }
-
     public void deleteBlog(UUID id) {
         blogRepository.deleteById(id);
     }
